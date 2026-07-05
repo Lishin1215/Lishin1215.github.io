@@ -1,0 +1,27 @@
+baseURL = "https://lishin1215.github.io/"
+languageCode = "zh-Hant"
+title = "Lishin"
+
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  name = "Li-Hsin (Janet)"
+  description = "Personal portfolio"
+  portrait = "/images/Janet.jpeg"
+  email = "lishin1008@gmail.com"
+  github = "https://github.com/Lishin1215"
+  linkedin = "https://www.linkedin.com/in/chien-li-hsin/"
+
+[menus]
+  [[menus.main]]
+    name = "Work"
+    url = "/#work"
+    weight = 10
+  [[menus.main]]
+    name = "About"
+    url = "/#about"
+    weight = 40
+  [[menus.main]]
+    name = "Contact"
+    url = "/#contact"
+    weight = 50

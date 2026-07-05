@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <article class="page">
+    <p class="eyebrow">{{ .Section | default "Page" }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="hero-copy">{{ . }}</p>
+    {{ end }}
+    <div class="content">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

@@ -1,0 +1,79 @@
+[[projects]]
+label = "Open Source · Google Summer of Code"
+title = "Rust-GCC/gccrs"
+url = "https://github.com/Rust-GCC/gccrs"
+meta = "C++, Compiler, GCC Frontend for Rust"
+summary_points = [
+  "Selected as a Google Summer of Code contributor to work on Rust Drop support in gccrs, with rustc 1.49 used as a reference for the implementation design.",
+  "Working on lowering Drop behavior in the Rust frontend, including block-scope cleanup, function-scope cleanup, function-parameter drops, and explicit-return paths.",
+  "Planning support for continue, break, and moved-value cases.",
+]
+links = [
+  { label = "PR List", url = "https://github.com/Rust-GCC/gccrs/pulls?q=is%3Apr+author%3ALishin1215+is%3Aclosed" },
+]
+bullets = [
+  "Selected as a Google Summer of Code contributor to develop Rust Drop support in gccrs.",
+  "Implemented initial Drop support for local variables and function parameters based on the rustc 1.49 implementation, including function-scope cleanup and explicit-return paths.",
+  "Contributed 5 patches to GCCRS, focusing on lowering and type checking in the Rust frontend for GCC, and collaborated with gccrs maintainers through weekly design discussions and code reviews.",
+]
+
+[[projects]]
+label = "Open Source"
+title = "xDSL"
+url = "https://github.com/xdslproject/xdsl"
+meta = "Python, MLIR-style Compiler Infrastructure"
+summary_points = [
+  "Contributed to xDSL's Linalg dialect and IR transformation infrastructure.",
+  "Worked on linalg.generic conversion and Linalg-to-loops lowering for dynamic bounds and index operations.",
+  "Added basic tiling support.",
+]
+links = [
+  { label = "PR List", url = "https://github.com/xdslproject/xdsl/pulls?q=is%3Apr+is%3Aclosed+author%3ALishin1215" },
+]
+bullets = [
+  "Developed core components of the Linalg dialect, focusing on operator design and IR transformation passes for structured linear algebra.",
+  "Implemented a generalization pass to convert named operations into linalg.generic (#5726) and enhanced Linalg-to-loops lowering to support dynamic bounds and index operations (#5768, #5756, #5774).",
+]
+
+[[projects]]
+label = "Project · Aug. 2025"
+title = "LLVM Pass Development"
+meta = "LLVM IR, optimization, benchmarking"
+summary_points = [
+  "Built an LLVM optimization pass that replaces selected constant-exponent pow calls with exp/log-based forms in LLVM IR.",
+  "Verified 4-10% speedup over -O3 on real image-processing workloads.",
+]
+bullets = [
+  "Achieved 4-10% speedup over -O3 by replacing constant-exponent pow (2.2, 1/2.2, 2.4, 1/2.4) with exp and log in LLVM IR.",
+  "Verified improvements on three real image-processing workloads (stb, Filament, libpng), rather than relying on toy examples.",
+  "Integrated the pass into the LLVM -O3 pipeline at VectorizerStart so the transformed exp and log could be directly optimized by the vectorizer.",
+]
+
+[[projects]]
+label = "Project · Nov. 2024"
+title = "ARM SVE Performance Optimization"
+meta = "C/C++, SVE, GCC, GDB, AWS Graviton"
+summary_points = [
+  "Vectorized C++ code using ARM Scalable Vector Extension (SVE), achieving 3.1x acceleration in large-scale data processing.",
+  "Verified performance with hardware counters on AWS Graviton3.",
+  "Inspected GCC GIMPLE and assembly output to confirm expected SVE instructions.",
+]
+bullets = [
+  "Achieved 3.1x acceleration in large-scale data processing by vectorizing C++ code using ARM Scalable Vector Extension (SVE).",
+  "Measured hardware performance counters on AWS Graviton3 (ARMv8) using linux perf tool: 63% fewer instructions, 65% fewer cycles, 80% fewer branches.",
+  "Verified correctness by inspecting GCC GIMPLE and assembly output, confirming expected SVE instructions.",
+]
+
+[[projects]]
+label = "Work Experience · Jun. 2024-Sept. 2024"
+title = "Bristol Eye Hospital"
+meta = "Software Engineer, Python · Contracted Academic Project with University of Bristol"
+summary_points = [
+  "Designed an AI application for Bristol Eye Hospital to improve referral-letter processing.",
+  "Worked on OCR API profiling, LLM fine-tuning and deployment on AWS SageMaker, and information extraction from referral letters.",
+]
+bullets = [
+  "Designed a customer-centric AI application for Bristol Eye Hospital to enhance the referral process, achieving 98% accuracy in extracting essential information from referral letters and optimizing efficiency to better serve patients and hospital staff.",
+  "Conducted performance analysis/profiling of three OCR APIs (AWS, GCP, Tesseract), identifying the best solution for converting referral letter images into text, optimising input quality for LLM models and ensuring the system's optimal OCR functionality.",
+  "Led a 3-person team to fine-tune and deploy LLM models (Gemma) on AWS SageMaker, improving accuracy by 15% in two weeks.",
+]
