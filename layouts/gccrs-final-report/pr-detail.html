@@ -1,0 +1,47 @@
+{{ define "main" }}
+  {{ $page := . }}
+  {{ $groupTitle := .Params.group }}
+  {{ with .Parent }}
+    {{ range .Params.groups }}
+      {{ if eq .id $page.Params.group }}
+        {{ $groupTitle = .title }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <article class="page pr-detail-page">
+    <a class="report-back-link report-top-link" href="/gccrs-final-report/pull-request-notes/">&larr; Contribution overview</a>
+
+    <p class="eyebrow">{{ $groupTitle }} · PR {{ .Params.number }}</p>
+    <h1>{{ .Title }}</h1>
+
+    <div class="pr-detail-meta">
+      <span class="pr-status pr-status-{{ .Params.status_class }}">{{ .Params.status }}</span>
+    </div>
+
+    <div class="content pr-detail-content">
+      {{ .Content }}
+    </div>
+
+    <a class="pr-primary-link" href="{{ .Params.pr_url }}" target="_blank" rel="noopener noreferrer">
+      View PR on GitHub <span aria-hidden="true">&nearr;</span>
+    </a>
+
+    <nav class="pr-detail-pagination" aria-label="Pull request navigation">
+      {{ with .NextInSection }}
+        <a class="pr-page-prev" href="{{ .RelPermalink }}">
+          <span>Previous</span>
+          <strong>{{ .Title }}</strong>
+        </a>
+      {{ end }}
+      {{ with .PrevInSection }}
+        <a class="pr-page-next" href="{{ .RelPermalink }}">
+          <span>Next</span>
+          <strong>{{ .Title }}</strong>
+        </a>
+      {{ end }}
+    </nav>
+
+    <a class="report-back-link" href="/gccrs-final-report/pull-request-notes/">&larr; Contribution overview</a>
+  </article>
+{{ end }}

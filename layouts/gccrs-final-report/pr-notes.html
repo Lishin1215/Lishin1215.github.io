@@ -1,0 +1,57 @@
+{{ define "main" }}
+  {{ $pages := .RegularPages.ByWeight }}
+  <article class="page pr-notes-page">
+    <p class="eyebrow">GSoC Final Report</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="hero-copy">{{ . }}</p>
+    {{ end }}
+
+    <a class="report-back-link report-top-link" href="/gccrs-final-report/">&larr; Back to Final Report</a>
+
+    <div class="content pr-notes-intro">
+      {{ .Content }}
+    </div>
+
+    <nav class="pr-stage-nav" aria-label="Contribution groups">
+      {{ range .Params.groups }}
+        {{ $items := where $pages "Params.group" .id }}
+        <a href="#{{ .id }}">
+          {{ .short_title }} <span>{{ len $items }}</span>
+        </a>
+      {{ end }}
+    </nav>
+
+    <div class="pr-overview">
+      {{ range $group := .Params.groups }}
+        {{ $items := where $pages "Params.group" $group.id }}
+        <section class="pr-overview-group" id="{{ $group.id }}">
+          <header class="pr-stage-heading">
+            <p class="pr-stage-number">
+              {{ len $items }} pull {{ if eq (len $items) 1 }}request{{ else }}requests{{ end }}
+            </p>
+            <h2>{{ $group.title }}</h2>
+            <p>{{ $group.description }}</p>
+          </header>
+
+          <div class="pr-overview-list">
+            {{ range $items }}
+              <a class="pr-overview-item pr-overview-item-{{ .Params.status_class }}" href="{{ .RelPermalink }}">
+                <div class="pr-overview-copy">
+                  <div class="pr-overview-meta">
+                    <span class="pr-overview-number">PR {{ .Params.number }}</span>
+                    <span class="pr-status pr-status-{{ .Params.status_class }}">{{ .Params.status }}</span>
+                  </div>
+                  <h3>{{ .Title }}</h3>
+                </div>
+                <span class="pr-overview-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+    </div>
+
+    <a class="report-back-link" href="/gccrs-final-report/">&larr; Back to Final Report</a>
+  </article>
+{{ end }}

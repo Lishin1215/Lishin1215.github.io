@@ -6,7 +6,7 @@
     </div>
     <div class="project-grid">
       {{ range site.Data.projects.projects }}
-        <article class="project-card">
+        <article class="project-card{{ if .featured }} featured{{ end }}">
           <span class="card-label">{{ .label }}</span>
           <h3>
             {{ if .url }}
@@ -30,7 +30,8 @@
           {{ with .links }}
             <div class="project-links">
               {{ range . }}
-                <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span>-&gt;</span></a>
+                {{ $external := or (hasPrefix .url "https://") (hasPrefix .url "http://") }}
+                <a href="{{ .url }}"{{ if $external }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
               {{ end }}
             </div>
           {{ end }}

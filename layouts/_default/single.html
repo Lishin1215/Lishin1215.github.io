@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <article class="page">
+  <article class="page{{ with .Params.page_class }} {{ . }}{{ end }}">
     <p class="eyebrow">{{ .Section | default "Page" }}</p>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}

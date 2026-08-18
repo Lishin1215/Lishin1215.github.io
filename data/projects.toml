@@ -2,25 +2,29 @@
 label = "Open Source · Google Summer of Code"
 title = "Rust-GCC/gccrs"
 url = "https://github.com/Rust-GCC/gccrs"
+featured = true
 meta = "C++, Compiler, GCC Frontend for Rust"
 summary_points = [
   "Selected as a Google Summer of Code contributor to work on Rust Drop support in gccrs, with rustc 1.49 used as a reference for the implementation design.",
-  "Working on lowering Drop behavior in the Rust frontend, including block-scope cleanup, function-scope cleanup, function-parameter drops, and explicit-return paths.",
-  "Planning support for continue, break, and moved-value cases.",
+  "Implemented structured Drop cleanup for block and function scopes, function parameters, explicit returns, and unlabeled break and continue paths.",
+  "Implemented BIR Drop-state analysis for straight-line and conditional control flow, then connected it to backend cleanup with Drop flags for supported whole-local moves.",
 ]
 links = [
-  { label = "PR List", url = "https://github.com/Rust-GCC/gccrs/pulls?q=is%3Apr+author%3ALishin1215+is%3Aclosed" },
+  { label = "Read Final Report", url = "/gccrs-final-report/" },
+  { label = "View Pull Requests on GitHub", url = "https://github.com/Rust-GCC/gccrs/pulls?q=is%3Apr+author%3ALishin1215+is%3Aclosed" },
+  { label = "Read GCC Mailing List Updates", url = "https://www.mail-archive.com/search?l=gcc@gcc.gnu.org&q=from:%22Janet+Chien+via+Gcc%22" },
 ]
 bullets = [
   "Selected as a Google Summer of Code contributor to develop Rust Drop support in gccrs.",
-  "Implemented initial Drop support for local variables and function parameters based on the rustc 1.49 implementation, including function-scope cleanup and explicit-return paths.",
-  "Contributed 5 patches to GCCRS, focusing on lowering and type checking in the Rust frontend for GCC, and collaborated with gccrs maintainers through weekly design discussions and code reviews.",
+  "Implemented structured Drop cleanup for local variables and function parameters, covering block and function scopes, explicit returns, and unlabeled break and continue paths.",
+  "Developed BIR-based Drop-state analysis for straight-line and conditional control flow, including backend Drop flags for conditional moves.",
 ]
 
 [[projects]]
 label = "Open Source"
 title = "xDSL"
 url = "https://github.com/xdslproject/xdsl"
+featured = true
 meta = "Python, MLIR-style Compiler Infrastructure"
 summary_points = [
   "Contributed to xDSL's Linalg dialect and IR transformation infrastructure.",
@@ -28,7 +32,7 @@ summary_points = [
   "Added basic tiling support.",
 ]
 links = [
-  { label = "PR List", url = "https://github.com/xdslproject/xdsl/pulls?q=is%3Apr+is%3Aclosed+author%3ALishin1215" },
+  { label = "View Pull Requests on GitHub", url = "https://github.com/xdslproject/xdsl/pulls?q=is%3Apr+is%3Aclosed+author%3ALishin1215" },
 ]
 bullets = [
   "Developed core components of the Linalg dialect, focusing on operator design and IR transformation passes for structured linear algebra.",
@@ -38,10 +42,14 @@ bullets = [
 [[projects]]
 label = "Project · Aug. 2025"
 title = "LLVM Pass Development"
+url = "https://github.com/Lishin1215/LLVM-Pass"
 meta = "LLVM IR, optimization, benchmarking"
 summary_points = [
   "Built an LLVM optimization pass that replaces selected constant-exponent pow calls with exp/log-based forms in LLVM IR.",
   "Verified 4-10% speedup over -O3 on real image-processing workloads.",
+]
+links = [
+  { label = "View Project on GitHub", url = "https://github.com/Lishin1215/LLVM-Pass" },
 ]
 bullets = [
   "Achieved 4-10% speedup over -O3 by replacing constant-exponent pow (2.2, 1/2.2, 2.4, 1/2.4) with exp and log in LLVM IR.",
@@ -52,11 +60,15 @@ bullets = [
 [[projects]]
 label = "Project · Nov. 2024"
 title = "ARM SVE Performance Optimization"
+url = "https://github.com/Lishin1215/ARM-SVE-Performance-Optimization"
 meta = "C/C++, SVE, GCC, GDB, AWS Graviton"
 summary_points = [
   "Vectorized C++ code using ARM Scalable Vector Extension (SVE), achieving 3.1x acceleration in large-scale data processing.",
   "Verified performance with hardware counters on AWS Graviton3.",
   "Inspected GCC GIMPLE and assembly output to confirm expected SVE instructions.",
+]
+links = [
+  { label = "View Project on GitHub", url = "https://github.com/Lishin1215/ARM-SVE-Performance-Optimization" },
 ]
 bullets = [
   "Achieved 3.1x acceleration in large-scale data processing by vectorizing C++ code using ARM Scalable Vector Extension (SVE).",
